@@ -39,7 +39,7 @@ async function getMovie() {
 
     try {
         const response = await fetch(
-            `http://localhost:8080/movie/${movieId}`,
+            `${API_URL}/movie/${movieId}`,
             {
                 headers: {
                     "Authorization": "Bearer " + token
@@ -74,7 +74,7 @@ async function loadReviews() {
 
     try {
         const response = await fetch(
-            `http://localhost:8080/user/${userId}/reviews`,
+            `${API_URL}/user/${userId}/reviews`,
             {
                 headers: {
                     "Authorization": "Bearer " + token

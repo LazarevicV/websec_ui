@@ -43,7 +43,7 @@ async function loadReview() {
 
     try {
         const response = await fetch(
-            `http://localhost:8080/user/${userId}/review/${reviewId}`,
+            `${API_URL}/user/${userId}/review/${reviewId}`,
             {
                 headers: {
                     "Authorization": "Bearer " + token
@@ -92,7 +92,7 @@ async function updateReview() {
 
     try {
         const response = await fetch(
-            `http://localhost:8080/user/${userId}/review/${reviewId}`,
+            `${API_URL}/user/${userId}/review/${reviewId}`,
             {
                 method: "PUT",
                 headers: {
@@ -138,7 +138,7 @@ async function loadReview() {
 
     try {
         const response = await fetch(
-            `http://localhost:8080/user/${userId}/review/${reviewId}`,
+            `${API_URL}/user/${userId}/review/${reviewId}`,
             {
                 headers: {
                     "Authorization": "Bearer " + token
