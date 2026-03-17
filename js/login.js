@@ -12,9 +12,21 @@ async function login() {
             password: password.value
         })
     });
+    
+    if (response.status === 429) {
+        const data = await response.json();
+        const totalSeconds = data.remainingSeconds || 0;
+        const minutes = Math.floor(totalSeconds / 60);
+        const secs = totalSeconds % 60;
+        const timeStr = minutes > 0
+            ? `${minutes} min ${secs} sec`
+            : `${totalSeconds} sec`;
+        error.innerText = `Account temporarily locked. Please try again in ${timeStr}.`;
+        return;
+    }
 
     if (!response.ok) {
-        error.innerText = "Invalid credentials";
+        error.innerText = "Invalid credentials.";
         return;
     }
 
